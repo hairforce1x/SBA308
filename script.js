@@ -97,17 +97,22 @@ function getLearnerData(course, ag, submissions) {
   return result;
 }
 
-const learners = {};
+// Tried to save each learner to an object. Kind of working.
+const learners = {}; 
 LearnerSubmissions.forEach(submission => {
-  const submission { learner_id, assignment_id, submission: { submitted_at, score } };
-  learners[learner_id].assignments.push({
-    assignment_id,
-    submitted_at,
-    score
-  });
+  let { learner_id, assignment_id, submission: { submitted_at, score } } = submission;
+  if (!learners[learner_id]) {
+    learners[learner_id] = {
+      learner_id,
+      assignments: []
+    };
+  }
 });
 
 const learnersArray = Object.values(learners);
 
 console.log(learnersArray);
 
+const learnerScores = LearnerSubmissions.map(submission => submission.submission.score)
+
+console.log(learnerScores)
