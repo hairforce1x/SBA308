@@ -98,6 +98,7 @@ function getLearnerData(course, ag, submissions) {
 }
 
 // Tried to save each learner to an object. Kind of working.
+// Create and maniplate arrays and objects
 const learners = {}; 
 LearnerSubmissions.forEach(submission => {
   let { learner_id, assignment_id, submission: { submitted_at, score } } = submission;
@@ -116,3 +117,22 @@ console.log(learnersArray);
 const learnerScores = LearnerSubmissions.map(submission => submission.submission.score)
 
 console.log(learnerScores)
+
+// Throwing stuff at the wall to try to get some points
+
+// Use operators to perform calculations on variables and literals.
+// Use functions to handle repeated tasks.
+function avg(submissionScore, pointsPossible) {
+  const average = submissionScore / pointsPossible;
+  return average;
+}
+// Two different loops
+for (const i in AssignmentGroup) {
+  console.log([i])
+}
+
+let newLearnerObj = {}
+for (let i = 0; i<LearnerSubmissions.length; i++){
+  newLearnerObj = newLearnerObj + LearnerSubmissions[i];
+}
+
